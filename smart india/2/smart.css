@@ -1,0 +1,30 @@
+.heading{
+  font-size: 8rem;
+  font-family: euro;
+  letter-spacing: 1rem;
+}
+@font-face {
+  font-family:euro;
+  src: url(fonts/euro/EuroStyle\ Normal.ttf);
+
+}
+@font-face {
+  font-family: nexa;
+  src: url(fonts/NexaDemo-Light.ttf);
+}
+.heading2{
+  font-family: nexa;
+  font-size: 5rem;
+ 
+  
+
+}
+/* .container{
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  
+}
+.scrollchild{
+  scroll-snap-align: start; 
+} */
+

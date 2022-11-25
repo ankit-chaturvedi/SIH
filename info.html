@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="smart.css">
+    <link rel="stylesheet" href="info.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Document</title>
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/7dbe4b8993aeaa6d731d1938eb157c8f/map_load?v=1.5%22%3E"></script>
+                <style>
+                    html, body, #map { margin: 0; padding: 0;width: 100%;height: 100%;}
+
+                </style>
+    
+</head>
+<body class="nunito">
+    <div class="bg-slate-100 text-slate-300  h-screen flex flex-col justify-center  ">
+        
+        <div class="bg-white h-5/6  mx-8 rounded-lg shadow-lg ">
+            <div class="z-0 opacity-70 rounded-lg  shadow-lg border-2 border-slate-100 " id="map"></div>
+            
+           
+        </div>
+        <div class="bg-slate-900 text-slate-300 opacity-90 z-10 absolute top-24 left-20 h-3/4 transition duration-300 hover:scale-110 rounded-lg w-1/4 shadow-lg flex flex-col justify-evenly p-4 ">
+            <h1 class="text-center text-3xl "><span>Title</span></h1>
+            <div class="content">
+               
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum adipisci, ab ratione quasi, tempora ut blanditiis porro magnam, quo voluptates id accusantium laboriosam dolores. Modi, blanditiis ea voluptatum vel maiores at accusantium numquam natus aspernatur, enim magnam, quos fugiat obcaecati?</p>
+            </div>
+            <div class="tags ">
+                <div><span class="text-lg">Location:</span><br><span class="">random location</span></div>
+                <div><span class="text-lg">Crime:</span><br><span class="">random crime</span></div>
+                <div><span class="text-lg">Category:</span><br><span class="">random location</span></div>
+            </div>
+            <div class="flex justify-between h-16">
+                <h4 class="text-lg">Click to view attachments:</h4>
+                <button class="bg-blue-300 rounded-lg shadow-lg transition duration-300 hover:scale-125 h-12 w-24" id="attach" ><a href=""><i class="material-icons text-gray-900">attachment</i></a></button>
+            </div>
+
+            
+        </div>
+
+    </div>
+    <div class="video h-screen bg-zinc-300 flex flex-col justify-evenly items-center hidden ">
+        <h1 class="text-4xl">attached content</h1>
+        <video  class="overflow-hidden w-3/4 h-3/4 rounded-lg object-cover shadow-lg" height="5vh" src="video/space.mp4  " controls></video>
+    </div>
+    
+    
+    
+
+
+    
+</body>
+<script>
+    let lat = JSON.parse('12.822988');
+let lng = JSON.parse('80.043598');
+var map=new MapmyIndia.Map("map",{ center:[lat,lng], zoomControl: true, hybrid:true, search:true, location:true});
+L.marker([lat,lng]).addTo(map);
+
+     </script>
+<script src="info.js"></script>
+</html>

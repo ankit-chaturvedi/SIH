@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up page</title>
+    <title>Document</title>
+    <script src="https://apis.mapmyindia.com/advancedmaps/api/c01d8bea-e1ee-4ca2-a8c7-42e37494ec4a/map_sdk_plugins"></script>
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/c01d8bea-e1ee-4ca2-a8c7-42e37494ec4a/map_load?v=1.5"></script>
+  </head>
+  <body>
+    {% if message %}{{message}}{% endif %}
+    <h3 align="center">Registration</h3>
+    <form action="" method = "POST">
+      <div>
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div>
+        <label for="PS_loc">Police Station:</label>
+        <input
+          type=""
+          id="PS_loc"
+          name="PS_loc"
+          placeholder="Location"
+        />
+      </div>
+      <div>
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+      </div>
+      <div>
+        <label for="confirm_pass"> Password:</label>
+        <input
+          type="password"
+          id="confirm_pass"
+          name="confirm_pass"
+          placeholder="Confirm Password"
+        />
+      </div>
+    
+    <br>
+    <div id="list" name="list"></div>
+    <br>
+    <div>
+    
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+
+    <button id="show">Show Police Stations Nearby</button>
+    </body>
+<div>
+
+
+
+  <script>
+    let link = JSON.parse('{{ temp | tojson }}')
+    var res=MapmyIndia.nearby({hyperLink:link});
+    console.log(res);
+    a=res["data"]["length"];
+    const pstas=[];
+    for (let i = 0; i < a; i++) {
+        pstas[i]=res["data"][i]["placeName"]
+     console.log(res["data"][i]["placeName"])
+    }
+    console.log(pstas)
+document.getElementById('show').onclick = function() {
+
+
+var select = document.createElement("select");
+select.name = "police station";
+select.id = "police station"
+let x
+for (const val of pstas)
+{
+var option = document.createElement("option");
+option.value = val;
+option.text = val.charAt(0).toUpperCase() + val.slice(1);
+select.appendChild(option);
+}
+
+var label = document.createElement("label");
+label.innerHTML = "Select your Police Station from the list: "
+label.htmlFor = "police station";
+
+document.getElementById("list").appendChild(label).appendChild(select);
+}
+</script>
+
+  </body>
+</html>
